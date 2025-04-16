@@ -33,19 +33,27 @@
     }
 
     // Ativar Botao Menu no modo Mobile
-    
-    on('click', '.mobile-nav-toggle', function() {
+
+    on('click', '.mobile-nav-toggle', function () {
         select('body').classList.toggle('mobile-nav-active')
         this.classList.toggle('bi-list')
         this.classList.toggle('bi-x')
     })
+    /* efeitos digitacao */
+    const typed = select('.typed')
 
-    
+    if (typed) {
+        let typed_strings = typed.getAttribute('data-typed-items')
+        typed_strings = typed_strings.split(',')
 
-
-    
-    
-
+        new Typed('.typed', {
+            strings: typed_strings,
+            loop: true,
+            typeSpeed: 50, //velocidade digitação//
+            backSpeed: 40, // velocidade em apagar//
+            backDelay: 500, //tempo de espera//
+        });
+    }
 
 
 })()
